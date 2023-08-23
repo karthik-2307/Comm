@@ -1,0 +1,240 @@
+{% extends "product/layout.html" %}
+
+{% block body %}
+<!-- Header with full-height image -->
+<div class="w3-container" style="padding:90px 0px" id="home">
+  <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" >
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+      <span class="w3-jumbo w3-hide-small">Where Style Meets Functionality</span><br>
+      <span class="w3-large">Unleash Your Imagination: Find Your Signature Style in Our Fittings</span>
+      <p><a href="{% url 'pricing' %}" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Upgrade Your Bathroom</a></p>
+    </div> 
+    <div class="w3-display-bottomleft w3-text-black w3-large" style="padding:24px 48px">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+  </header>
+</div>
+<!-- About Section -->
+<div class="w3-container" style="padding:90px 16px; background-color: #e7ebd6;" id="about">
+  <h3 class="w3-center">ABOUT THE COMPANY</h3>
+  <p class="w3-center w3-large">Key features of our company</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Wide Range of Products</p>
+      <p>The company can provide a diverse selection of bathroom fittings, including faucets, showerheads,
+        toilets, bathtubs, sinks, and accessories, to cater to different customer preferences and styles.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Customization Options</p>
+      <p>The company can offer customization services, allowing customers to personalize their bathroom fittings.
+        This could include options for finishes (chrome, brushed nickel, matte black, etc.) and handle styles</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">High-Quality Materials</p>
+      <p>The company can emphasize the use of premium materials in its bathroom fittings, ensuring durability, longevity, and a luxurious feel. For example, 
+        they may offer brass or stainless steel faucets, ceramic sinks, and high-quality acrylic or stone bathtubs.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Easy Installation</p>
+      <p> The company can provide easy-to-install bathroom fittings, accompanied by clear instructions and support materials.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>We know What are you looking for !!</h3>
+      <p>Revitalize Your Space: Explore the Possibilities with Our Bathroom Fittings. 
+        Where Luxury Meets Functionality: Explore Our Premium Bathroom Fittings.</p>
+      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"></i> View Our Works</a></p>
+    </div>
+     <div class="box promo w3-col m6"></div>
+  </div>
+</div>
+
+<!-- Work Section -->
+
+<div class="w3-container" style="padding:70px 2px;" id="work">
+  <h3 class="w3-center"><b>OUR WORK</b></h3>
+  <p class="w3-center w3-large">What we've done for people</p>
+  <div class="container">
+    <div class="row" style="padding:20px 16px">
+      {% for item in my_data %}
+        <div class="card mx-3" style="width: 280px; padding-bottom: 10px; border: 0.5px solid grey;">
+            <img class="card-img-top" onclick="onClick(this)" src="{{ item.image }}" alt="{{ item.title }}" height="300px">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title}}</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image"></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-padding-64" style="background-color: #30474a; color: #ffffff;">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">2005</span>
+    <br>Founded in
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Outlets
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">100+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Range of Products
+  </div>
+  </div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:60px 16px;" id="team">
+  <h3 class="w3-center"><b>FOUNDER</b></h3>
+  <p class="w3-center w3-large">The one who runs this company</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:54px; margin-left: 380px;">
+    <div class="w3-col l4 m8 w3-margin-bottom">
+      <div class="ceo w3-card">
+      </div>
+    </div>
+    <div class="w3-col l4 m7 w3-margin-bottom">
+      <div class="w3-card">
+        <div class="w3-container">
+          <h3>Sanjeev Kumar Sharma</h3>
+          <p class="w3-opacity">CEO & Founder</p>
+          <p>The CEO is dedicated, tirelessly committed and solely focused on professional excellence.
+            He showcases unwaveringly dedicated, assuming full responsibility and navigating the path alone with utmost determination.</p>
+          <p><a href="{% url 'register' %}" class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<!-- Skills Section -->
+<div class="w3-container w3-light-grey w3-padding-64">
+<div class="w3-row-padding">
+  <div class="w3-col m6">
+    <h3>Our Skills.</h3>
+    <p>We Acquire a deep understanding of different types of bathroom fittings, including faucets,
+       showers, sinks, toilets, bathtubs, and accessories.</p>
+    <p>We Understand principles of bathroom design, including spatial planning, color schemes, and coordination with other elements.
+       This knowledge will help you guide customers in choosing suitable fittings based on their preferences .</p>
+  </div>
+  <div class="w3-col m6">
+    <p class="w3-wide"><i class="fa fa-cog w3-margin-right"></i>Technical Expertise</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-center" style="width:90%">95%</div>
+    </div><br>
+    <p class="w3-wide"><i class="fa fa-diamond w3-margin-right"></i>Design and Aesthetics</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-center" style="width:85%">90%</div>
+    </div><br>
+    <p class="w3-wide"><i class="fa fa-heart w3-margin-right"></i>Customer Satisfaction</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-center" style="width:75%">85%</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Pricing Section -->
+<div class="w3-container w3-center" style="padding:90px 16px; background-color: #36494f; color: #ffffff;" id="pricing">
+<h3>CATEGORIES</h3>
+<p class="w3-large">Choose a category plan that fits your needs.</p>
+<div class="w3-row-padding" style="margin-top:64px">
+  <div class="w3-third w3-section">
+    <ul class="w3-ul w3-white w3-hover-shadow">
+      <li class="w3-black w3-xlarge w3-padding-32">CONTINENTAL</li>
+      <li class="con"></li>
+      <li class="w3-padding-16"><b>15</b> Type</li>
+      <li class="w3-padding-16"><b>Catalog</b></li>
+      <li class="w3-padding-16"><b>Price Mentioned</b></li>
+      <li class="w3-light-grey w3-padding-24">
+        <button class="w3-button w3-black w3-padding-large">BUY</button>
+      </li>
+    </ul>
+  </div>
+  <div class="w3-third">
+    <ul class="w3-ul w3-white w3-hover-shadow">
+      <li class="w3-xlarge w3-padding-32" style="background-color:  #4fb1c0; color: #ffffff;">FLORA</li>
+      <li class="flora"></li>
+      <li class="w3-padding-16"><b>15</b> Type </li>
+      <li class="w3-padding-16"><b>Catalog</b></li>
+      <li class="w3-padding-16"><b>Price Mentioned</b></li>
+      <li class="w3-light-grey w3-padding-24">
+        <button class="w3-button w3-black w3-padding-large">BUY</button>
+      </li>
+    </ul>
+  </div>
+  <div class="w3-third w3-section">
+    <ul class="w3-ul w3-white w3-hover-shadow">
+      <li class="w3-black w3-xlarge w3-padding-32">SLEEK</li>
+      <li class="pearl"></li>
+      <li class="w3-padding-16"><b>8</b> Type</li>
+      <li class="w3-padding-16"><b>Catalog</b></li>
+      <li class="w3-padding-16"><b>Price Range:- 550 - 1200</b></li>
+      <li class="w3-light-grey w3-padding-24">
+        <button class="w3-button w3-black w3-padding-large">BUY</button>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container" style="padding:80px 0px 0px 16px; background-color: #ecf0f3;" id="contact">
+<h3 class="w3-center">CONTACT</h3>
+<p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+<div style="margin-top:48px">
+  <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Delhi, India</p>
+  <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +91 9891777343</p>
+  <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: sanjiv7838414123@gmail.com</p>
+  <br>
+  <div class="end">
+  </div>
+</div>
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+<a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+<div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+</div>
+<p>Created by Ishita Sharma</p>
+</footer>
+
+
+
+{% endblock %}

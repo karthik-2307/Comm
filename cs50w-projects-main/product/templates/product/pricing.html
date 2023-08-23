@@ -1,0 +1,26 @@
+{% extends "product/layout.html" %}
+
+{% block body %}
+      <div class="container" style="padding:80px 15px;">
+        <h1 style="padding: 40px 15px;">BATH   FITTINGS </h1>
+        <div class="row" style=" padding: 20px 30px;">
+          {% for item in my_data %}
+            <div class="card mx-3" style="width: 300px;;">
+                <div class="card-header">
+                    <p>Price : Rs. {{ item.price }}</p>
+                </div>
+                <img class="card-img-top" src="{{ item.image }}" alt="{{ item.title }}" height="300px">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.title}}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    <form action="{% url 'pay' id=item.id %}" method="POST">
+                        {% csrf_token %}
+                        <a href="{% url 'pay' id=item.id %}" class="btn btn-primary">BUY</a>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

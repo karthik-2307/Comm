@@ -1,0 +1,113 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+height: 100%;
+line-height: 1.8;
+}
+.end{
+    background-image: url("{% static 'else.jpg' %}");
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+}
+.ceo{
+    background-image: url("{% static 'profile.jpg' %}");
+    height: 334px;
+}
+.flora{
+background-image: url("{% static 'flora.jpg' %}");
+height: 300px;
+}
+.con{
+background-image: url("{% static 'conti.jpg' %}");
+height: 305px;
+}
+.pearl{
+background-image: url("{% static 'pearl.jpg' %}");
+height: 300px;
+}
+/* Full height image header */
+.bgimg-1 {
+background-position: center;
+padding-top: 100px;
+background-size: cover;
+background-image: url("{% static 'mi.jpeg' %}");
+height: 550px; 
+}
+.promo {
+    background-image: url("{% static 'pro2.jpg' %}");
+    height: 180px;
+}
+
+.w3-bar .w3-button {
+padding: 16px;
+}
+.card {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 1rem;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.5rem 1.5rem;
+}
+@media (max-width:630px) {
+    .card{
+        flex-direction: column;
+        width: 90px;
+    }
+    #home{
+        justify-content: center;
+    }
+    #about{
+        justify-content: center;
+    }
+    #team{
+        justify-content: center;
+        overflow: hidden;
+    }
+}
+@media (max-height:520px) {
+    body{
+        overflow-x: hidden;
+    }
+    #team{
+        justify-content: center;
+        overflow: hidden;
+    }
+    .card{
+        margin-bottom: 20px;
+    }
+    footer{
+        position: relative;
+    }
+}
+@media(max-height:570px) and (max-width:630px){
+    body{
+        overflow-x: hidden;
+    }
+    .card{
+        margin-bottom: 13px;
+    }
+    #team{
+        justify-content: center;
+        overflow: hidden;
+    }
+    footer{
+        position: relative;
+    }
+}
